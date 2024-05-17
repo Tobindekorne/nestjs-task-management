@@ -32,6 +32,25 @@
 $ yarn install
 ```
 
+You will need to have PostgreSQL and Docker installed and then run
+`docker run --name postgres-nest -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres:14`
+
+This is running an older version of postgres to avoid Docker issues with the latest version. After getting PostgreSQL running in a docker container, you can connect to the app by opening pgAdmin and creating a Server. Then create a database with:
+![DB Settings](db_settings.png 'DB Settings')
+And then give it a password
+
+### .env.local
+
+Set up a .env.local file in the project root with the following filled in
+
+```.env
+DATABASE_NAME=YOUR_DB_NAME
+DATABASE_HOST=localhost
+DATABASE_USER=YOUR_DB_USERNAME
+DATABASE_PASSWORD=YOUR_DB_PASSWORD
+DATABASE_PORT=5432
+```
+
 ## Running the app
 
 ```bash
